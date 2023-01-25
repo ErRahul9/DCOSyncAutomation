@@ -63,6 +63,48 @@
         "key": "campaign_id"
       }
     },
+     "DCOPublisherPerformanceThresholdBidDecimal": {
+      "payload": {
+    "advertiserId": 33287,
+    "campaignGroupId": 34181,
+    "campaignId":164100,
+    "threshold": 99.9991122003,
+    "transactionId": "f9d8a87b-39c2-4a04-b6cf-8a9af6a567d5",
+    "batchId": "UUID",
+    "type": "publisherPerformanceThreshold",
+    "timestamp": "2022-11-09T00:32:50.332055Z"
+},
+      "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/DSO_SYNC_UPDATES_QA.fifo",
+      "expectedResult": {
+        "statusCode": 200
+      },
+      "databaseInformation": {
+        "tableName": "sync.campaign_thresholds",
+        "getColmn": "performance_threshold",
+        "key": "campaign_id"
+      }
+    },
+     "DCOPublisherPerformanceThresholdNegativeValue": {
+      "payload": {
+    "advertiserId": 33287,
+    "campaignGroupId": 34181,
+    "campaignId":164100,
+    "threshold": -99.09,
+    "transactionId": "f9d8a87b-39c2-4a04-b6cf-8a9af6a567d5",
+    "batchId": "UUID",
+    "type": "publisherPerformanceThreshold",
+    "timestamp": "2022-11-09T00:32:50.332055Z"
+},
+      "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/DSO_SYNC_UPDATES_QA.fifo",
+      "expectedResult": {
+        "statusCode": 200
+      },
+      "databaseInformation": {
+        "tableName": "sync.campaign_thresholds",
+        "getColmn": "performance_threshold",
+        "key": "campaign_id"
+      }
+    },
     "DCOCPMThreshold": {
       "payload": {
      "advertiserId": 33287,

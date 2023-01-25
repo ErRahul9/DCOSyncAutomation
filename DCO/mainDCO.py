@@ -55,7 +55,7 @@ class main():
             # MessageGroupId="QA_Automation_Test",
             MessageDeduplicationId=str(uuid.uuid4()) + ":Automationtest"
         )
-        print(message)
+        # print(message)
         return  response
 
 
@@ -69,11 +69,12 @@ class main():
                 val = self.updatePayload(tests).get("campaignId")
                 data = data.get("getColmn")
                 sql = "select {} from sync.campaign_thresholds where {} = {}".format(data,key,val)
-                print(sql)
+                # print(sql)
                 result = connecters(sql).connectToPostgres()
                 expectedVal = result[0][0]
                 compField = self.testObj.get(tests).get("payload").get("threshold")
-                if expectedVal == compField:
+                if float(expectedVal) == compField:
+                    print(tests)
                     print("expected value {} is matching the data in database {}".format(expectedVal,compField))
                 else:
                     print("expected value {} is not matching the data in database {}".format(expectedVal, compField))

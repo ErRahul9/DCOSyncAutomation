@@ -1,0 +1,41 @@
+{
+  "blocklist": {
+    "dataBlockList": {
+      "payload": {
+        "site": "fubo_bravotest3_Testing_Blocked",
+        "publisherTypeId": 1,
+        "append": true,
+        "advertiserId": 32846,
+        "advertiser_id": 32165
+      },
+      "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/sync_blocked_sites_qa.fifo",
+      "expectedResult": {
+        "statusCode": 200,
+        "recency_threshold": 2592000
+      },
+      "databaseInformation": {
+        "tableName": "sync.campaign_thresholds",
+        "getColmn": "recency_threshold",
+        "key": "campaign_id"
+      }
+    },
+     "dataBlockListGlobal": {
+      "payload": {
+        "site": "fubo_bravotest3_Testing",
+        "publisherTypeId": 1,
+        "append": true,
+        "advertiserId": ""
+      },
+      "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/sync_blocked_sites_qa.fifo",
+      "expectedResult": {
+        "statusCode": 200,
+        "recency_threshold": 2592000
+      },
+      "databaseInformation": {
+        "tableName": "sync.campaign_thresholds",
+        "getColmn": "recency_threshold",
+        "key": "campaign_id"
+      }
+    }
+  }
+}

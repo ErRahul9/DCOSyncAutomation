@@ -1,50 +1,21 @@
-import json
-import os.path
-import sys
-from sys import argv
-# from main import main
-# from  databaseConn import  connecters
-# from jsonReader import jsonReader
-# from config import globals
-from dotenv import load_dotenv
+from unittest import TestCase
 from mainDCO import *
-from auto.databaseConn import connecters
-from auto.getMethods import getMethods
-from auto.jsonReader import jsonReader
+import argparse
+# import testCase as testCase
 
 
-class runner():
 
-    def __init__(self):
-        load_dotenv()
-        self.ROOTDIR = sys.path[1]
-        # self.testObj = testObj
-        self.adv = sys.path[0]
-        self.fixpath = os.path.join(self.adv,"fixtures")
-        self.jsonObject = jsonReader(self.fixpath, "{0}_Test.json".format(self.testObj)).readJson()
-        # self.test = test
+if __name__=='__main__':
+    parser = argparse.ArgumentParser(description='running DCO tests for thresholds')
+    parser.add_argument('testName',default="all")
+    # parser.argument_default('All')
+    tests = parser.parse_args()
+    print(parser.parse_args())
 
-    def run(self, objs):
-        print(self.test)
-        beeswaxInfo = {}
-        # objs = self.test
-        getMethods(self.mod, objs).refreshSecurityToken()
-        cmpType = ""
-        campId = ""
-        main().refreshSecurityToken()
 
-        # sqlQuery = self.queries(campId)
-        # print(response)
-        # getResponseCode = response["ResponseMetadata"]
-        # if getResponseCode["HTTPStatusCode"] == 200:
-        #     lineItemId = connecters(sqlQuery).connectToPostgres()
-        #     if len(lineItemId) == 0:
-        #         print("no record found in the database")
-        #     else:
-        #         print(lineItemId[0][0])
-        #         beeswaxData = getMethods(self.mod, objs).verifyBeeswax(lineItemId[0][0])
-        # beeswaxInfo[campId] = beeswaxData
-        # print(beeswaxData)
-
-if __name__ == '__main__':
-    print(runner().run())
+    #
+    #
+    #
+    # def runTests(self):
+    #     main().run(TestCase)
+    #     self.assertTrue(True)

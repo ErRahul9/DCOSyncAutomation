@@ -1,12 +1,11 @@
 {
   "blocklist": {
-    "dataBlockList": {
+    "addSiteToBlockList": {
       "payload": {
-        "site": "fubo_bravotest3_Testing_Blocked",
+        "site": "addSiteToBlockList",
         "publisherTypeId": 1,
         "append": true,
-        "advertiserId": 32846,
-        "advertiser_id": 32165
+        "advertiserId": 32846
       },
       "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/sync_blocked_sites_qa.fifo",
       "expectedResult": {
@@ -19,11 +18,47 @@
         "key": "campaign_id"
       }
     },
-     "dataBlockListGlobal": {
+     "removeSiteFromBlockList": {
       "payload": {
-        "site": "fubo_bravotest3_Testing",
+        "site": "removeSiteFromBlockList",
+        "publisherTypeId": 1,
+        "append": false,
+        "advertiserId": 32846
+      },
+      "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/sync_blocked_sites_qa.fifo",
+      "expectedResult": {
+        "statusCode": 200,
+        "recency_threshold": 2592000
+      },
+      "databaseInformation": {
+        "tableName": "sync.campaign_thresholds",
+        "getColmn": "recency_threshold",
+        "key": "campaign_id"
+      }
+    },
+     "addSiteToBlockListWithNoAdvertiserId": {
+      "payload": {
+        "site": "addSiteToBlockListWithNoAdvertiserId",
         "publisherTypeId": 1,
         "append": true,
+        "advertiserId": ""
+      },
+      "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/sync_blocked_sites_qa.fifo",
+      "expectedResult": {
+        "statusCode": 200,
+        "recency_threshold": 2592000
+      },
+      "databaseInformation": {
+        "tableName": "sync.campaign_thresholds",
+        "getColmn": "recency_threshold",
+        "key": "campaign_id"
+      }
+    },
+     "removeSiteFromBlockListWithNoAdvertiserId": {
+      "payload": {
+        "site": "removeSiteFromBlockListWithNoAdvertiserId",
+        "publisherTypeId": 1,
+        "append": false,
         "advertiserId": ""
       },
       "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/sync_blocked_sites_qa.fifo",

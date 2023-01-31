@@ -68,9 +68,9 @@ class main():
         return result
 
 
-if __name__ == '__main__':
-    main("test","threshold").refreshSecurityToken()
-    # print(main("dataBlockList","blocklist").run("dataBlockList"))
-    print(main("dataBlockListGlobal", "blocklist").run("dataBlockList"))
+# if __name__ == '__main__':
+#     main("test","threshold").refreshSecurityToken()
+#     # print(main("dataBlockList","blocklist").run("dataBlockList"))
+#     print(main("dataBlockListGlobal", "blocklist").run("dataBlockList"))
     # print(main("dataBlockList").getTableData())
     # campaign budgets, daily budget (bx) , open market cap messages , blocklist,

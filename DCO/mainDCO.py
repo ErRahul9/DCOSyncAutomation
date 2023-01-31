@@ -67,6 +67,19 @@ class main():
         result = connecters(sql).connectToPostgres()
         return result
 
+    def teardown(self):
+        caches = ["core-dev-rtb-dev-blocksite-rep-group.pid24g.clustercfg.usw2.cache.amazonaws.com"]
+        retData = []
+        for cache in caches:
+            key = "methodCall[0]"
+            metadata = "methodCall[1]"
+            insertType = "delete"
+            # cache = cache
+            print("deleting data from cache {0}".format(cache))
+            retVal = connecters.connectToCache(cache, 6379, metadata, key, "delete", insertType)
+            retData.append("deleted :  " + cache + "   :" + str(retVal))
+        return retData
+
 
 # if __name__ == '__main__':
 #     main("test","threshold").refreshSecurityToken()

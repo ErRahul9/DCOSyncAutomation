@@ -2,10 +2,10 @@
   "blocklist": {
     "addSiteToBlockList": {
       "payload": {
-        "site": "addSiteToBlockList",
+        "site": "com.automatedTest.ktrenewsapp1",
         "publisherTypeId": 1,
         "append": true,
-        "advertiserId": 32846
+        "advertiserId": 166194
       },
       "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/sync_blocked_sites_qa.fifo",
       "expectedResult": {

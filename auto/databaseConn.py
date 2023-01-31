@@ -29,20 +29,18 @@ class connecters():
         startup_nodes = [ClusterNode(host, port)]
         rc = RedisCluster(startup_nodes=startup_nodes, decode_responses=True, skip_full_coverage_check=True)
         getValue = ""
-        if "insert" in action:
-            if "set" in insertType:
-                for data in mapping:
-                    rc.set(key, mapping.get(data))
-                    getValue = rc.get(key)
-            elif "sadd" in insertType:
-                vals = [data for data in mapping.get(key)]
-                for value in vals:
-                    rc.sadd(key, value)
-                getValue = rc.smembers(key)
-
-            elif "hm" in insertType:
-                rc.hmset(name=key, mapping=mapping)
-                getValue = rc.hgetall(key)
+        if "set" in insertType:
+            # for data in mapping:
+            #     rc.set(key, mapping.get(data))
+            getValue = rc.get(key)
+        elif "sadd" in insertType:
+            # vals = [data for data in mapping.get(key)]
+            # for value in vals:
+            #     rc.sadd(key, value)
+            getValue = rc.smembers(key)
+        elif "hm" in insertType:
+            # rc.hmset(name=key, mapping=mapping)
+            getValue = rc.hgetall(key)
         elif "delete" in action:
             rc.flushall()
         return getValue

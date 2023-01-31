@@ -52,7 +52,7 @@ class main():
         response = sqs_client.send_message(
             QueueUrl=url,
             MessageBody=json.dumps(message),
-            MessageGroupId="QA_Automation_Test",
+            MessageGroupId=str(groupId)+"QA_Automation_Test",
             # MessageGroupId="QA_Automation_Test",
             MessageDeduplicationId=str(uuid.uuid4()) + ":Automationtest"
         )

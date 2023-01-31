@@ -15,8 +15,10 @@ if __name__ == '__main__':
     allTests = testCases.get(argv[1]).keys()
     print(type(allTests))
     if len(sys.argv) == 3:
+
         print("running test for {}".format(argv[2]))
         allTests = list(filter(lambda test: (test in argv[2]), allTests))
     for test in allTests:
+        main(test, argv[1]).teardown()
         main(test, argv[1]).refreshSecurityToken()
         print(main(test, argv[1]).run(test))

@@ -17,11 +17,11 @@
 			"queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/DSO_SYNC_UPDATES_QA.fifo",
 			"expectedResult": {
 				"statusCode": 200,
-				"budget": 2592000
+				"field": "budget"
 			},
 			"databaseInformation": {
 				"tableName": "sync.campaign_budgets",
-				"getColmn": "",
+				"getColmn": "budget",
 				"key": "campaign_id"
 			}
 		}

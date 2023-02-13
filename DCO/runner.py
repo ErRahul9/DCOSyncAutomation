@@ -13,11 +13,17 @@ if __name__ == '__main__':
     testFileName = argv[1] + "_test.json"
     testCases = jsonReader.jsonReader(fixpath, testFileName).readJson()
     allTests = testCases.get(argv[1]).keys()
-    print(type(allTests))
+    print(testCases.get(argv[1]))
     if len(sys.argv) == 3:
         print("running test for {}".format(argv[2]))
         allTests = list(filter(lambda test: (test in argv[2]), allTests))
     for test in allTests:
-        # main(test, argv[1]).teardown()
+        # expResponse = testCases.get(argv[1]).get(test).get("expectedResult")
+        main(test, argv[1]).teardown()
         main(test, argv[1]).refreshSecurityToken()
-        print(main(test, argv[1]).run(test))
+        getResponse = main(test, argv[1]).ValidateResposeData(test)
+        # if int(getResponse.get("ResponseMetadata").get("HTTPStatusCode")) == expResponse.get("statusCode") :
+        #     tabledata = main(test, argv[1]).getTableData(test)
+
+
+

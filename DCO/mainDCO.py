@@ -12,7 +12,7 @@ from auto import *
 
 
 class main():
-    def __init__(self, test,mod):
+    def __init__(self, test, mod):
         self.test = test
         self.mod = mod
         self.ROOTDIR = sys.path[1]
@@ -52,7 +52,7 @@ class main():
         response = sqs_client.send_message(
             QueueUrl=url,
             MessageBody=json.dumps(message),
-            MessageGroupId=str(groupId)+"QA_Automation_Test",
+            MessageGroupId=str(groupId) + "QA_Automation_Test",
             # MessageGroupId="QA_Automation_Test",
             MessageDeduplicationId=str(uuid.uuid4()) + ":Automationtest"
         )
@@ -62,8 +62,10 @@ class main():
         data = self.testObj.get(tests).get("databaseInformation")
         key = data.get("key")
         val = self.updatePayload(tests).get("campaignId")
-        data = data.get("getColmn")
-        sql = "select {} from sync.campaign_thresholds where {} = {}".format(data, key, val)
+        dataVal = data.get("getColmn")
+        table = data.get("tableName")
+        sql = "select {} from {} where {} = {}".format(dataVal, table, key, val)
+        print(sql)
         result = connecters(sql).connectToPostgres()
         return result
 
@@ -80,10 +82,21 @@ class main():
             retData.append("deleted :  " + cache + "   :" + str(retVal))
         return retData
 
+    def ValidateResposeData(self, test):
+        response = self.run(test)
+        dataBaseinfo = self.getTableData(test)
+        field = self.testObj.get(test).get("expectedResult").get("field")
+        if response.get("ResponseMetadata").get("HTTPStatusCode") == 200:
+            if dataBaseinfo[0].index(0) == int(float(self.updatePayload(test).get(field))):
+                print("Pass")
+            else:
+                print("Expected Value is {} actual value displayed in {}".format(self.updatePayload(test).get(field),
+                                                                                 dataBaseinfo[0].index(0)))
+                print("Fail")
 
 # if __name__ == '__main__':
-#     main("test","threshold").refreshSecurityToken()
+# main("test","threshold").refreshSecurityToken()
 #     # print(main("dataBlockList","blocklist").run("dataBlockList"))
 #     print(main("dataBlockListGlobal", "blocklist").run("dataBlockList"))
-    # print(main("dataBlockList").getTableData())
-    # campaign budgets, daily budget (bx) , open market cap messages , blocklist,
+#     print(main("budgetTest1","budget").ValidateResposeData("budgetTest1"))
+# campaign budgets, daily budget (bx) , open market cap messages , blocklist,

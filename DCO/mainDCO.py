@@ -87,16 +87,19 @@ class main():
         dataBaseinfo = self.getTableData(test)
         field = self.testObj.get(test).get("expectedResult").get("field")
         if response.get("ResponseMetadata").get("HTTPStatusCode") == 200:
-            if dataBaseinfo[0].index(0) == int(float(self.updatePayload(test).get(field))):
+            tupDb = dataBaseinfo[0]
+            for details in tupDb:
+                values  = details
+            if int(values) == int(float(self.updatePayload(test).get(field))):
                 print("Pass")
             else:
                 print("Expected Value is {} actual value displayed in {}".format(self.updatePayload(test).get(field),
-                                                                                 dataBaseinfo[0].index(0)))
+                                                                                 values))
                 print("Fail")
 
 # if __name__ == '__main__':
 # main("test","threshold").refreshSecurityToken()
 #     # print(main("dataBlockList","blocklist").run("dataBlockList"))
 #     print(main("dataBlockListGlobal", "blocklist").run("dataBlockList"))
-#     print(main("budgetTest1","budget").ValidateResposeData("budgetTest1"))
+#     print(main("DCOPublisherPerformanceThreshold","threshold").ValidateResposeDat?a("DCOPublisherPerformanceThreshold"))
 # campaign budgets, daily budget (bx) , open market cap messages , blocklist,

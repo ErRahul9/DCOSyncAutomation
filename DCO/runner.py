@@ -1,11 +1,7 @@
 from sys import argv
-from unittest import TestCase
-
 from auto.jsonReader import jsonReader
 from mainDCO import *
-import argparse
 
-# import testCase as testCase
 
 
 if __name__ == '__main__':
@@ -18,12 +14,10 @@ if __name__ == '__main__':
         print("running test for {}".format(argv[2]))
         allTests = list(filter(lambda test: (test in argv[2]), allTests))
     for test in allTests:
-        # expResponse = testCases.get(argv[1]).get(test).get("expectedResult")
         main(test, argv[1]).teardown()
         main(test, argv[1]).refreshSecurityToken()
         getResponse = main(test, argv[1]).ValidateResposeData(test)
-        # if int(getResponse.get("ResponseMetadata").get("HTTPStatusCode")) == expResponse.get("statusCode") :
-        #     tabledata = main(test, argv[1]).getTableData(test)
+
 
 
 

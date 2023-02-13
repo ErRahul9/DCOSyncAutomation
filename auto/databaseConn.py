@@ -20,6 +20,7 @@ class connecters():
         cursor = conn.cursor()
         cursor.execute(self.query)
         results =  cursor.fetchall()
+        print(results)
         conn.commit()
         conn.close()
         return results

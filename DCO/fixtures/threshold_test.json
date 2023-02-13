@@ -13,7 +13,8 @@
 },
       "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/DSO_SYNC_UPDATES_QA.fifo",
       "expectedResult": {
-        "statusCode": 200
+        "statusCode": 200,
+        "field":"threshold"
       },
       "databaseInformation": {
         "tableName": "sync.campaign_thresholds",
@@ -34,7 +35,8 @@
 },
       "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/DSO_SYNC_UPDATES_QA.fifo",
       "expectedResult": {
-        "statusCode": 200
+        "statusCode": 200,
+        "field":"threshold"
       },
       "databaseInformation": {
         "tableName": "sync.campaign_thresholds",
@@ -55,7 +57,8 @@
 },
       "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/DSO_SYNC_UPDATES_QA.fifo",
       "expectedResult": {
-        "statusCode": 200
+        "statusCode": 200,
+        "field":"threshold"
       },
       "databaseInformation": {
         "tableName": "sync.campaign_thresholds",
@@ -76,7 +79,8 @@
 },
       "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/DSO_SYNC_UPDATES_QA.fifo",
       "expectedResult": {
-        "statusCode": 200
+        "statusCode": 200,
+        "field":"threshold"
       },
       "databaseInformation": {
         "tableName": "sync.campaign_thresholds",
@@ -97,7 +101,8 @@
 },
       "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/DSO_SYNC_UPDATES_QA.fifo",
       "expectedResult": {
-        "statusCode": 200
+        "statusCode": 200,
+        "field":"threshold"
       },
       "databaseInformation": {
         "tableName": "sync.campaign_thresholds",
@@ -118,7 +123,8 @@
 },
       "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/DSO_SYNC_UPDATES_QA.fifo",
       "expectedResult": {
-        "statusCode": 200
+        "statusCode": 200,
+        "field":"threshold"
       },
       "databaseInformation": {
         "tableName": "sync.campaign_thresholds",
@@ -140,6 +146,7 @@
       "queueUrl": "https://sqs.us-west-2.amazonaws.com/758867141056/DSO_SYNC_UPDATES_QA.fifo",
       "expectedResult": {
         "statusCode": 200,
+        "field":"threshold",
         "recency_threshold": 2592000
       },
       "databaseInformation": {
